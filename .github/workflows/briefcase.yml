@@ -26,6 +26,7 @@ jobs:
           fetch-depth: 0
       - name: Detect version tag
         id: tag
+        shell: bash
         run: |
           TAG=$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
           if [ -n "$TAG" ]; then
@@ -37,7 +38,7 @@ jobs:
           python-version: "3.12"
       - name: Install Briefcase
         if: steps.tag.outputs.version_tag != ''
-        run: pip install briefcase
+        run: pip install briefcase 'chardet<6'
       - name: Install Qt runtime libs (Linux only)
         if: steps.tag.outputs.version_tag != '' && runner.os == 'Linux'
         run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev libegl1 libglib2.0-0
