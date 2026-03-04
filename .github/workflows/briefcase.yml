@@ -16,13 +16,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        include:
-          - os: macos-latest
-            briefcase_target: ""
-          - os: windows-latest
-            briefcase_target: ""
-          - os: ubuntu-latest
-            briefcase_target: linux appimage
+        os: [macos-latest, windows-latest]
     steps:
       # Pin checkout to the exact SHA that triggered pip_publish, not the current branch HEAD,
       # so tag lookup finds the correct release tag even if the branch moved.
@@ -45,15 +39,12 @@ jobs:
       - name: Install Briefcase
         if: steps.tag.outputs.version_tag != ''
         run: pip install briefcase 'chardet<6'
-      - name: Install Qt runtime libs (Linux only)
-        if: steps.tag.outputs.version_tag != '' && runner.os == 'Linux'
-        run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev libegl1 libglib2.0-0
       - name: Build installer
         if: steps.tag.outputs.version_tag != ''
         run: |
-          briefcase create ${{ matrix.briefcase_target }}
-          briefcase build ${{ matrix.briefcase_target }}
-          briefcase package ${{ matrix.briefcase_target }} --no-sign
+          briefcase create
+          briefcase build
+          briefcase package --no-sign
       - name: Attach to Release
         if: steps.tag.outputs.version_tag != ''
         uses: softprops/action-gh-release@v2
