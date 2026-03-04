@@ -28,7 +28,7 @@ jobs:
         id: tag
         shell: bash
         run: |
-          TAG=$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
+          TAG=$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1 || true)
           if [ -n "$TAG" ]; then
             echo "version_tag=${TAG#v}" >> "$GITHUB_OUTPUT"
           fi
