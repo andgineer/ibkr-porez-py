@@ -5,12 +5,13 @@
 | Name                                                |    Stmts |     Miss |   Cover |   Missing |
 |---------------------------------------------------- | -------: | -------: | ------: | --------: |
 | src/ibkr\_porez/\_\_about\_\_.py                    |        1 |        0 |    100% |           |
+| src/ibkr\_porez/\_\_main\_\_.py                     |        3 |        3 |      0% |       1-4 |
 | src/ibkr\_porez/config.py                           |       49 |        0 |    100% |           |
 | src/ibkr\_porez/declaration\_gains\_xml.py          |       98 |        3 |     97% |135-136, 139 |
 | src/ibkr\_porez/declaration\_income\_xml.py         |       94 |        1 |     99% |        79 |
 | src/ibkr\_porez/declaration\_manager.py             |      181 |       12 |     93% |30, 43, 56, 61-62, 132, 159, 184, 205, 235, 239, 296 |
 | src/ibkr\_porez/error\_handling.py                  |       18 |        0 |    100% |           |
-| src/ibkr\_porez/gui/app\_icon.py                    |       94 |       75 |     20% |25-40, 44-49, 62-74, 85-118, 122-155, 159-161 |
+| src/ibkr\_porez/gui/app\_icon.py                    |       96 |       76 |     21% |19, 30-45, 49-54, 67-79, 90-123, 127-160, 164-166 |
 | src/ibkr\_porez/gui/assessment\_dialog.py           |       46 |        0 |    100% |           |
 | src/ibkr\_porez/gui/config\_dialog.py               |      132 |        5 |     96% |155, 158, 180-186 |
 | src/ibkr\_porez/gui/constants.py                    |        6 |        0 |    100% |           |
@@ -46,7 +47,7 @@
 | src/ibkr\_porez/storage\_flex\_queries.py           |      155 |       27 |     83% |125, 149, 159-161, 169-186, 226, 250, 256-257, 261-264, 284, 300 |
 | src/ibkr\_porez/tax.py                              |       71 |       14 |     80% |27, 33, 57-59, 87-103, 151-152, 155-156 |
 | src/ibkr\_porez/validation.py                       |       13 |        1 |     92% |        29 |
-| **TOTAL**                                           | **3929** |  **600** | **85%** |           |
+| **TOTAL**                                           | **3934** |  **604** | **85%** |           |
 
 
 ## Setup coverage badge
