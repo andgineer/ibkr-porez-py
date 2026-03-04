@@ -2,7 +2,9 @@ exclude: |
     (?x)(
       .venv/|
       tasks.py|
-      resources/
+      resources/|
+      site/|
+      dist/
     )
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -67,5 +69,8 @@ repos:
 #          "--ignore=missing-import",
 #          "--ignore=missing-source-for-stubs",
           "--project-excludes=tests",
+          "--project-excludes=build",
+          "--project-excludes=site",
+          "--project-excludes=dist",
           "--python-interpreter-path=.venv/bin/python"
         ]
