@@ -17,5 +17,8 @@ pytest-coverage.txt
 **/.setup-scripts/
 allure-results/
 dist/
+build/
+icon/*.iconset/
+logs/
 ppdg3r*.xml
 .DS_Store

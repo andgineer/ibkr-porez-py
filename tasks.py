@@ -75,6 +75,12 @@ def pre(c):
     c.run("pre-commit run --verbose --all-files")
 
 
+@task
+def icons(c: Context):
+    """Regenerate app icon PNG for Briefcase packaging."""
+    c.run("python scripts/generate_icons.py")
+
+
 
 namespace = Collection.from_module(sys.modules[__name__])
 for name in ALLOWED_VERSION_TYPES:

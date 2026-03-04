@@ -20,7 +20,7 @@ dependencies = [
     "platformdirs>=4.3.6",
     "tenacity>=9.0.0",
     "pandas>=2.0.0",
-    "PySide6>=6.8.0",
+    "PySide6>=6.7.0,<6.8.0",
     "holidays>=0.89",
 ]
 [[project.authors]]
@@ -57,6 +57,8 @@ packages = [
 [tool.uv]
 dev-dependencies = [
     "allure-pytest>=2.14.2",
+    "briefcase>=0.3.26",
+    "chardet<=6",
     "invoke>=2.2.0",
     "mkdocs-awesome-pages-plugin>=2.10.1",
     "mkdocs-material>=9.6.13",
@@ -73,3 +75,45 @@ dev-dependencies = [
 
 [project.scripts]
 ibkr-porez = "ibkr_porez.main:ibkr_porez"
+
+[tool.briefcase]
+project_name = "IBKR Porez"
+bundle = "engineer.sorokin"
+# version: hardcoded here because Briefcase does not understand [tool.hatch.version] / dynamic.
+# Must be kept in sync with src/ibkr_porez/__about__.py — update in ver scripts (verup.sh / tasks.py).
+version = "3.4.0"
+url = "https://andgineer.github.io/ibkr-porez/"
+license.file = "LICENSE.txt"
+author = "Andrey Sorokin"
+author_email = "andrey@sorokin.engineer"
+
+[tool.briefcase.app.ibkr-porez]
+formal_name = "IBKR Porez"
+description = "Automated PPDG-3R tax reports for Interactive Brokers"
+sources = ["src/ibkr_porez"]
+icon = "icon/ibkr_porez"
+requires = [
+    # ⚠️  KEEP THIS LIST IN SYNC WITH [project].dependencies in pyproject.toml.
+    # PySide6 is capped at <6.8.0 because Briefcase's macOS support package targets macOS 11.0
+    # and PySide6 6.8+ only ships macosx_13_0_arm64 wheels — pip inside the Briefcase app env
+    # cannot find them. Both lists use the same cap so dev and installer ship identical versions.
+    "click>=8.2.0",
+    "rich-click>=1.8.8",
+    "requests>=2.32.3",
+    "holidays>=0.63",
+    "python-dateutil>=2.8.2",
+    "pydantic>=2.10.6",
+    "platformdirs>=4.3.6",
+    "tenacity>=9.0.0",
+    "pandas>=2.0.0",
+    "PySide6>=6.7.0,<6.8.0",
+]
+
+[tool.briefcase.app.ibkr-porez.macOS]
+# Unsigned by default; add signing config when Apple cert is available
+
+[tool.briefcase.app.ibkr-porez.windows]
+# Windows: produces MSI via WiX (auto-installed by Briefcase)
+
+[tool.briefcase.app.ibkr-porez.linux]
+# Linux: produces AppImage (Docker-based build in CI)

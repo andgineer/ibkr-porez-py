@@ -77,6 +77,9 @@ for file in ${VERSION_FILES[*]}; do
   git add $file
 done
 
+sed -i'' -e '/^\[tool\.briefcase\]/,/^\[/ s/^version[[:blank:]]*=[[:blank:]]*"[0-9.]*"/version = "'"$NEW_VERSION"'"/' pyproject.toml
+git add pyproject.toml
+
 COMMIT_MSG=$(git log $TAG..HEAD --format=oneline | awk '{$1=""; print $0}')
 COMMIT_MSG=$(echo -e "\n$COMMIT_MSG\n")
 

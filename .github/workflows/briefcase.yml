@@ -1,0 +1,60 @@
+name: Build Installers
+
+on:
+  workflow_run:
+    workflows: ["Upload Python Package"]
+    types: [completed]
+
+# Required for softprops/action-gh-release to attach assets to the release.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    # Only run when the upstream workflow succeeded; avoids noisy runs when no release was created.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      # Pin checkout to the exact SHA that triggered pip_publish, not the current branch HEAD,
+      # so tag lookup finds the correct release tag even if the branch moved.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-tags: true
+      - name: Detect version tag
+        id: tag
+        # Fail fast if no semver tag is present: all subsequent steps are skipped automatically,
+        # so version_tag (a local step output) is guaranteed non-empty for Attach to Release.
+        run: |
+          TAG=$(git tag --points-at HEAD | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
+          if [ -z "$TAG" ]; then
+            echo "No semver tag on head_sha — aborting." >&2
+            exit 1
+          fi
+          echo "version_tag=${TAG#v}" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Briefcase
+        run: pip install briefcase
+      - name: Install Qt runtime libs (Linux only)
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev libegl1 libglib2.0-0
+      - name: Build installer
+        if: ${{ steps.tag.outputs.version_tag != '' }}
+        run: |
+          briefcase create
+          briefcase build
+          briefcase package --no-sign
+      - name: Attach to Release
+        if: ${{ steps.tag.outputs.version_tag != '' }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.version_tag }}  # guarded above; non-empty by construction
+          files: |
+            **/*.dmg
+            **/*.msi
+            **/*.AppImage

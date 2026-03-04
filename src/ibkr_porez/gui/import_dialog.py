@@ -211,7 +211,7 @@ class ImportDialog(QDialog):
         super().reject()
 
     @override
-    def closeEvent(self, event: QCloseEvent) -> None:
+    def closeEvent(self, event: QCloseEvent) -> None:  # pyrefly: ignore[bad-param-name-override]
         if self._is_running():
             self.error_label.setText("Import is running. Wait until it finishes.")
             event.ignore()

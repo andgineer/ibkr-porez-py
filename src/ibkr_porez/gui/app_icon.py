@@ -14,6 +14,11 @@ from PySide6.QtGui import (
 _ICON_SIZES = (16, 24, 32, 48, 64, 128, 256)
 
 
+def export_icon_png(size: int) -> QPixmap:
+    """Public wrapper around internal icon rendering; stable API for tooling."""
+    return _draw_icon_pixmap(size)
+
+
 def create_app_icon() -> QIcon:
     icon = QIcon()
     for size in _ICON_SIZES:
