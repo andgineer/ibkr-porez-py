@@ -48,10 +48,10 @@ jobs:
           briefcase create
           briefcase build
       - name: Smoke test — verify GUI imports work in built bundle
-        if: steps.tag.outputs.version_tag != '' && runner.os == 'macOS'
+        if: steps.tag.outputs.version_tag != ''
         shell: bash
         run: |
-          APP_PACKAGES="build/ibkr-porez/macos/app/IBKR Porez.app/Contents/Resources/app_packages"
+          APP_PACKAGES=$(find build -type d -name app_packages | head -1)
           PYTHONPATH="$APP_PACKAGES" QT_QPA_PLATFORM=offscreen python scripts/smoke_test_gui.py
       - name: Package installer
         if: steps.tag.outputs.version_tag != ''
