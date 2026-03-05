@@ -145,19 +145,17 @@ jobs:
         publish_dir: ${{ steps.allure-report.outputs.reports-site }}
         destination_dir: ${{ steps.allure-report.outputs.reports-site-path }}
 
-    - name: Coverage comment (PR)
-      id: coverage_comment_pr
-      if: ${{ always() && github.event.workflow_run.event == 'pull_request' }}
+    - name: Coverage update (source push only)
+      id: coverage_comment
+      if: >-
+        ${{
+          always()
+          && github.event.workflow_run.event == 'push'
+        }}
       uses: py-cov-action/python-coverage-comment-action@v3
-      with:
-        GITHUB_TOKEN: ${{ github.token }}
-        GITHUB_PR_RUN_ID: ${{ github.event.workflow_run.id }}
-        MINIMUM_GREEN: 85
-        MINIMUM_ORANGE: 70
-
-    - name: Coverage update (push)
-      if: ${{ always() && github.event.workflow_run.event == 'push' }}
-      uses: py-cov-action/python-coverage-comment-action@v3
+      env:
+        GITHUB_EVENT_NAME: push
+        GITHUB_REF: refs/heads/${{ github.event.workflow_run.head_branch }}
       with:
         GITHUB_TOKEN: ${{ github.token }}
         MINIMUM_GREEN: 85
@@ -165,7 +163,7 @@ jobs:
 
     - name: Store Pull Request comment to be posted
       uses: actions/upload-artifact@v4
-      if: steps.coverage_comment_pr.outputs.COMMENT_FILE_WRITTEN == 'true'
+      if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
       with:
         name: python-coverage-comment-action
         path: python-coverage-comment-action.txt
