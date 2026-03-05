@@ -123,6 +123,10 @@ def _normalize_button_text(text: str) -> str:
     return text.replace("↻", "").strip()
 
 
+def _normalize_window_title(text: str) -> str:
+    return text.partition(" v")[0]
+
+
 def _table_rows_snapshot(window: MainWindow) -> list[dict[str, str | list[dict[str, str | bool]]]]:
     rows = []
     for row in range(window.table.rowCount()):
@@ -152,7 +156,7 @@ def test_main_window_active_layout_regression(
     data_regression,
 ) -> None:
     snapshot = {
-        "window_title": patched_main_window.windowTitle(),
+        "window_title": _normalize_window_title(patched_main_window.windowTitle()),
         "top_buttons": [
             _normalize_button_text(patched_main_window.sync_button.text()),
             _normalize_button_text(patched_main_window.import_button.text()),

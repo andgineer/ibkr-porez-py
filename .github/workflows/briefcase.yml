@@ -2,8 +2,11 @@ name: Build Installers
 
 on:
   workflow_run:
-    workflows: ["Upload Python Package"]
+    workflows: ["CI"]
     types: [completed]
+    branches:
+      - master
+      - main
 
 # Required for softprops/action-gh-release to attach assets to the release.
 permissions:
