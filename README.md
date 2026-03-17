@@ -2,7 +2,7 @@
 > **The Rust version is significantly smaller in install/binary size and is actively maintained.**
 >
 > This Python version remains functional and database-compatible, but is no longer actively developed.
-> If you prefer Python, feel free to fork or contribute -- PRs are accepted.
+> If you prefer this Python version, feel free to fork or contribute -- PRs are accepted.
 
 [![Build Status](https://github.com/andgineer/ibkr-porez-py/workflows/CI/badge.svg)](https://github.com/andgineer/ibkr-porez-py/actions)
 [![Coverage](https://raw.githubusercontent.com/andgineer/ibkr-porez-py/python-coverage-comment-action-data/badge.svg)](https://htmlpreview.github.io/?https://github.com/andgineer/ibkr-porez-py/blob/python-coverage-comment-action-data/htmlcov/index.html)
