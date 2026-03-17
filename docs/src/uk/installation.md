@@ -5,7 +5,7 @@
 Якщо вам складно використовувати термінал і не потрібен CLI (робота із застосунком через командний рядок),
 завантажте готовий інсталятор зі сторінки релізів:
 
-**[https://github.com/andgineer/ibkr-porez/releases](https://github.com/andgineer/ibkr-porez/releases)**
+**[https://github.com/andgineer/ibkr-porez-py/releases](https://github.com/andgineer/ibkr-porez-py/releases)**
 
 Оскільки інсталятор включає інтерпретатор Python, він дуже великий, а графічний застосунок, який він
 встановлює, також великий і повільний.

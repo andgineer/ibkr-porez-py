@@ -5,7 +5,7 @@
 If you find it difficult to use the terminal and do not need CLI (working with the application via the command line),
 download the ready-made installer from the releases page:
 
-**[https://github.com/andgineer/ibkr-porez/releases](https://github.com/andgineer/ibkr-porez/releases)**
+**[https://github.com/andgineer/ibkr-porez-py/releases](https://github.com/andgineer/ibkr-porez-py/releases)**
 
 Since the installer includes the Python interpreter, it is very large, and the graphical application it
 installs is also large and sluggish.

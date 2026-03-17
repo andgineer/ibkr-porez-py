@@ -13,7 +13,9 @@ It automatically fetches your data and generates a ready-to-upload XML files wit
 
 # Quick Start
 
-Graphical installers are available for Windows and macOS but they are large.
+Graphical installers are available for Windows and macOS - see [releases](https://github.com/andgineer/ibkr-porez-py/releases)
+but they are large.
+
 The recommended lightweight installation method is [`uv tool`](https://docs.astral.sh/uv/getting-started/installation/):
 
 ```bash

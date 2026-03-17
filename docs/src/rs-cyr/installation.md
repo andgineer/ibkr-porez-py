@@ -5,7 +5,7 @@
 Ако вам је тешко да користите терминал и не треба вам CLI (рад са апликацијом кроз командну линију),
 преузмите готов инсталатер са странице издања:
 
-**[https://github.com/andgineer/ibkr-porez/releases](https://github.com/andgineer/ibkr-porez/releases)**
+**[https://github.com/andgineer/ibkr-porez-py/releases](https://github.com/andgineer/ibkr-porez-py/releases)**
 
 Пошто инсталатер укључује Python интерпретатор, веома је велики, а графичка апликација коју
 инсталира је такође велика и спора.
