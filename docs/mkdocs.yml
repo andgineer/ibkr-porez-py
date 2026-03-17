@@ -1,11 +1,11 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
 site_name: ibkr_porez
-site_url: https://andgineer.github.io/ibkr-porez
+site_url: https://andgineer.github.io/ibkr-porez-py
 site_author: Andrey Sorokin
 
 # Repository
 repo_name: ibkr_porez
-repo_url: https://github.com/andgineer/ibkr-porez
+repo_url: https://github.com/andgineer/ibkr-porez-py
 edit_uri: edit/master/docs
 docs_dir: 'src/LANGUAGE'
 site_dir: '../site/SITE_PREFIX'
@@ -62,19 +62,19 @@ theme:
 extra:
   alternate:
     - name: English
-      link: /ibkr-porez/
+      link: /ibkr-porez-py/
       lang: en
     - name: Русский
-      link: /ibkr-porez/ru/
+      link: /ibkr-porez-py/ru/
       lang: ru
     - name: Українська
-      link: /ibkr-porez/uk/
+      link: /ibkr-porez-py/uk/
       lang: uk
     - name: Srpski (Latinica)
-      link: /ibkr-porez/rs/
+      link: /ibkr-porez-py/rs/
       lang: rs
     - name: Српски (Ћирилица)
-      link: /ibkr-porez/rs-cyr/
+      link: /ibkr-porez-py/rs-cyr/
       lang: rs-cyr
 
 nav:
