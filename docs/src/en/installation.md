@@ -2,9 +2,16 @@
 
 ## Graphical Installer (GUI only, no CLI)
 
-If you only need the graphical application and do not need the command line, download the ready-made installer from the releases page:
+If you find it difficult to use the terminal and do not need CLI (working with the application via the command line),
+download the ready-made installer from the releases page:
 
 **[https://github.com/andgineer/ibkr-porez/releases](https://github.com/andgineer/ibkr-porez/releases)**
+
+Since the installer includes the Python interpreter, it is very large, and the graphical application it
+installs is also large and sluggish.
+
+If possible, consider installing with `uv tool` (see below) — you will get the same graphical application
+but much lighter. The installation itself will be simpler, much faster, and trouble-free.
 
 === "macOS"
     Download the latest `.dmg` file.
@@ -44,11 +51,9 @@ If you only need the graphical application and do not need the command line, dow
 
 ---
 
-## Install Python package (CLI + GUI)
+## Install with uv tool
 
-If CLI is your native language (AI agents and brave humans), install the Python package.
-
-Install Astral `uv tool`: [Install `uv`](https://docs.astral.sh/uv/getting-started/installation/)
+Install Astral [uv tool](https://docs.astral.sh/uv/getting-started/installation/)
 
 ### Install application
 

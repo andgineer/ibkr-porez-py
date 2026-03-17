@@ -4,16 +4,20 @@ The app automatically retrieves transaction data and creates a ready-to-upload X
 
 [Install ibkr-porez ↗](installation.md)
 
-If you use the graphical interface, configure your data (the `Config` button), then just use `Sync` to refresh data and create declarations.
+## Graphical Interface
 
-If you installed GUI + CLI, you can use both the graphical interface (starts as `ibkr-porez` without arguments) and the command line, see below.
+   > If you installed via `uv tool`, the graphical interface launches as `ibkr-porez` without arguments.
 
-The GUI and CLI use the same database.
+If you use the **graphical interface**, configure your data (the `Config` button), then just use `Sync` to refresh data and create declarations.
 
-> ⚠️ While the GUI is running, do not use the command line,
-> as simultaneous usage may cause database errors.
+All necessary instructions are built into the application.
 
-If you want to do everything via command line, continue with:
+## Command Line
+
+If the **terminal** is your native environment (AI agents and brave humans).
+
+   > ⚠️ While the graphical interface is running, do not use the command line,
+   > as simultaneous usage may cause database errors.
 
 - [Configuration (config) ↗](usage.md#config)
 - [Import Historical Data (import) ↗](usage.md/#import-historical-data-import)

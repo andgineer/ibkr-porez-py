@@ -2,9 +2,16 @@
 
 ## Grafički instalater (samo GUI, bez CLI)
 
-Ako vam je potrebna samo grafička aplikacija i ne treba vam komandna linija, preuzmite gotov instalater sa stranice izdanja:
+Ako vam je teško da koristite terminal i ne treba vam CLI (rad sa aplikacijom kroz komandnu liniju),
+preuzmite gotov instalater sa stranice izdanja:
 
 **[https://github.com/andgineer/ibkr-porez/releases](https://github.com/andgineer/ibkr-porez/releases)**
+
+Pošto instalater uključuje Python interpreter, veoma je veliki, a grafička aplikacija koju
+instalira je takođe velika i spora.
+
+Ako je moguće, razmotrite instalaciju pomoću `uv tool` (vidi ispod) — dobićete istu grafičku aplikaciju
+ali mnogo lakšu. Sama instalacija će biti jednostavnija, mnogo brža i bez problema.
 
 === "macOS"
     Preuzmite najnoviji `.dmg` fajl.
@@ -44,11 +51,9 @@ Ako vam je potrebna samo grafička aplikacija i ne treba vam komandna linija, pr
 
 ---
 
-## Instalacija Python package (CLI + GUI)
+## Instalacija pomoću uv tool
 
-Ako je CLI vaš maternji jezik (AI agenti i hrabri ljudi), instalirajte Python package.
-
-Instalirajte Astral `uv tool`: [Instalacija `uv`](https://docs.astral.sh/uv/getting-started/installation/)
+Instalirajte Astral [uv tool](https://docs.astral.sh/uv/getting-started/installation/)
 
 ### Instalacija aplikacije
 

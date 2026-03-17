@@ -4,16 +4,20 @@ Program automatski preuzima podatke o transakcijama i kreira gotov XML fajl za o
 
 [Instalirajte ibkr-porez ↗](installation.md)
 
-Ako koristite grafički interfejs, podesite svoje podatke (dugme `Config`) i za osvežavanje podataka i kreiranje prijava samo koristite dugme `Sync`.
+## Grafički interfejs
 
-Ako ste instalirali GUI + CLI, možete koristiti i grafički interfejs (pokreće se kao `ibkr-porez` bez parametara) i komandnu liniju, vidi ispod.
+   > Ako ste instalirali preko `uv tool`, grafički interfejs se pokreće kao `ibkr-porez` bez parametara.
 
-Grafički interfejs i komandna linija koriste istu bazu podataka.
+Ako koristite **grafički interfejs**, podesite svoje podatke (dugme `Config`) i za osvežavanje podataka i kreiranje prijava samo koristite dugme `Sync`.
 
-> ⚠️ Dok je grafički interfejs pokrenut, ne koristite komandnu liniju,
-> jer istovremeni rad može izazvati greške u bazi podataka.
+Sve potrebne instrukcije su ugrađene u aplikaciju.
 
-Ako želite sve da radite kroz komandnu liniju, nastavite sa:
+## Komandna linija
+
+Ako je **terminal** vaše prirodno okruženje (AI agenti i hrabri ljudi).
+
+   > ⚠️ Dok je grafički interfejs pokrenut, ne koristite komandnu liniju,
+   > jer istovremeni rad može izazvati greške u bazi podataka.
 
 - [Konfiguracija (config) ↗](usage.md#konfiguracija-config)
 - [Uvoz istorijskih podataka (import) ↗](usage.md/#uvoz-istorijskih-podataka-import)
