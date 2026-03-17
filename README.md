@@ -20,6 +20,7 @@ The recommended lightweight installation method is [`uv tool`](https://docs.astr
 
 ```bash
 uv tool install ibkr-porez
+ibkr-porez  # without arguments launches the graphical interface; for CLI see `--help`
 ```
 
 If you use the graphical interface, configure your data (the `Config` button),
