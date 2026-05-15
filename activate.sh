@@ -39,7 +39,6 @@ if [[ ! -d ${VENV_FOLDER} ]] ; then
 
     if command -v uv &> /dev/null; then
         if uv venv ${VENV_FOLDER} --python=python${PRIMARY_PYTHON_VERSION}; then
-
             . ${VENV_FOLDER}/bin/activate
             uv sync --frozen
             uv pip install -e .
